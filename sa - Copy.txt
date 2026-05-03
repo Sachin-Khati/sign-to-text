@@ -1,0 +1,365 @@
+# AI-Based Sign Language Detector
+
+A real-time sign language detection application that can recognize both alphabet letters and common words using deep learning models.
+
+## Features
+
+- 🔤 **Alphabet Detection**: Recognize individual sign language letters (A-Z)
+- 📝 **Word Detection**: Recognize common sign language words (Hello, Thank You, Yes, No, etc.)
+- 📷 **Real-time Webcam Detection**: Capture and analyze gestures from your webcam
+- 📊 **Confidence Scores**: See prediction confidence levels
+- 📚 **History Tracking**: Keep track of detected signs
+
+## Project Structure
+
+```
+├── backend/
+│   ├── python_service/    # Flask API for model predictions
+│   │   └── app.py
+│   ├── src/
+│   │   └── server.js      # Node.js backend server
+│   └── data/              # History and data storage
+├── frontend/              # React frontend application
+│   └── src/
+│       ├── pages/
+│       │   └── Detect.jsx # Main detection page
+│       └── assets/
+│           └── signs.json # Sign definitions
+├── test_model/
+│   └── model/             # Pre-trained TensorFlow models
+│       ├── alphabet_model.h5
+│       └── words_model.h5
+└── MyDataset/             # Training dataset
+
+```
+
+## Prerequisites
+
+- **Node.js** (v16 or higher)
+- **Python** (v3.8 or higher)
+- **npm** or **yarn**
+
+## Installation
+
+### 1. Install Python Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Install Backend Dependencies
+
+```bash
+cd backend
+npm install
+```
+
+### 3. Install Frontend Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+## Running the Application
+
+### Step 1: Start the Python Flask Service
+
+The Python service handles model predictions. Start it first:
+
+```bash
+cd backend/python_service
+python app.py
+```
+
+The service will run on `http://localhost:5000` by default.
+
+### Step 2: Start the Node.js Backend
+
+In a new terminal:
+
+```bash
+cd backend
+npm start
+```
+
+The backend will run on `http://localhost:4000` by default.
+
+### Step 3: Start the Frontend
+
+In a new terminal:
+
+```bash
+cd frontend
+npm run dev
+```
+
+The frontend will run on `http://localhost:5173` by default.
+
+## Usage
+
+1. Open your browser and navigate to `http://localhost:5173`
+2. Click on the "Detect" page
+3. Select either "Words" or "Alphabet" detection mode
+4. Position yourself in front of your webcam
+5. Make a sign language gesture
+6. Click "🔍 Detect Sign" to analyze your gesture
+7. View the prediction and confidence score
+
+## Environment Variables
+
+You can customize the ports by creating `.env` files:
+
+**backend/.env:**
+```
+PORT=4000
+PYTHON_SERVICE_URL=http://localhost:5000
+```
+
+**backend/python_service/.env:**
+```
+PYTHON_PORT=5000
+```
+
+**frontend/.env:**
+```
+VITE_API_URL=http://localhost:4000
+```
+
+## API Endpoints
+
+### Node.js Backend (`http://localhost:4000`)
+
+- `GET /api/health` - Health check
+- `GET /api/signs` - Get list of signs
+- `GET /api/history` - Get detection history
+- `POST /api/history` - Save detection to history
+- `POST /api/detect` - Detect sign language (forwards to Python service)
+  - Body: `{ "image": "base64_image", "type": "words" | "alphabet" }`
+
+### Python Service (`http://localhost:5000`)
+
+- `GET /health` - Health check
+- `POST /predict` - Predict sign language
+  - Body: `{ "image": "base64_image", "type": "words" | "alphabet" }`
+  - Response: `{ "label": "Hello", "confidence": 0.95, "type": "words" }`
+
+## Troubleshooting
+
+### Models Not Loading
+
+- Ensure the model files exist in `test_model/model/`
+- Check that TensorFlow is installed correctly: `pip install tensorflow`
+
+### Webcam Not Working
+
+- Grant camera permissions in your browser
+- Check that no other application is using the webcam
+- Try refreshing the page
+
+### Python Service Connection Error
+
+- Make sure the Python service is running on port 5000
+- Check the `PYTHON_SERVICE_URL` environment variable
+- The backend will fall back to mock predictions if the service is unavailable
+
+## Development
+
+### Testing the Models
+
+You can test the models directly using the test scripts:
+
+```bash
+# Test alphabet model
+cd test_model
+python test_alphabet.py
+
+# Test words model
+python words_model_test.py
+```
+
+### Training New Models
+
+See the training scripts in `test_model/`:
+- `training_alphabet_original.py`
+- `training_words_original.py`
+
+## License
+
+This project is open source and available for educational purposes.
+
+
+
+##imdeiate
+# Quick Start Guide - AI Sign Language Detector
+
+Follow these steps **in order** to run the project successfully.
+
+## Step 1: Install All Dependencies
+
+### Install Python Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Install Backend Dependencies
+```bash
+cd backend
+npm install
+cd ..
+```
+
+### Install Frontend Dependencies
+```bash
+cd frontend
+npm install
+cd ..
+```
+
+---
+
+## Step 2: Start All Services (3 Separate Terminals)
+
+### Terminal 1: Start Python Service (Port 5000)
+```bash
+cd backend/python_service
+python app.py
+```
+
+**Expected output:**
+```
+🚀 Starting Sign Language Detection API...
+Loading alphabet model from ...
+Loading words model from ...
+✅ Models loaded successfully!
+📡 API running on http://localhost:5000
+```
+
+### Terminal 2: Start Node.js Backend (Port 4000)
+```bash
+cd backend
+npm start
+```
+
+**Expected output:**
+```
+Backend listening on http://localhost:4000
+```
+
+### Terminal 3: Start Frontend (Port 5173)
+```bash
+cd frontend
+npm run dev
+```
+
+**Expected output:**
+```
+  VITE v7.x.x  ready in xxx ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+```
+
+---
+
+## Step 3: Access the Application
+
+Open your browser and go to:
+
+### ✅ **Frontend (Main Application)**
+**http://localhost:5173**
+
+This is where you'll see the sign language detector interface.
+
+---
+
+## Important URLs
+
+| Service | URL | Purpose |
+|---------|-----|---------|
+| **Frontend** | http://localhost:5173 | **Use this one!** Main application |
+| Backend API | http://localhost:4000/api/health | API health check |
+| Python Service | http://localhost:5000/health | Model service health |
+
+---
+
+## Troubleshooting
+
+### ❌ "Cannot GET /" Error
+
+**If you see this error:**
+- Make sure you're accessing **http://localhost:5173** (frontend)
+- NOT http://localhost:4000 (backend)
+- Make sure Terminal 3 (frontend) is running `npm run dev`
+
+### ❌ Frontend won't start
+
+**Check:**
+1. Did you run `npm install` in the `frontend` folder?
+2. Are you in the `frontend` directory when running `npm run dev`?
+3. Check for any error messages in the terminal
+
+### ❌ Python Service won't start
+
+**Check:**
+1. Did you install Python dependencies? (`pip install -r requirements.txt`)
+2. Are the model files present in `test_model/model/`?
+   - `alphabet_model.h5`
+   - `words_model.h5`
+   - `alphabet_label_map.json`
+   - `word_label_map.json`
+3. Check for error messages in the terminal
+
+### ❌ Backend won't connect to Python Service
+
+**Check:**
+1. Is Python service running on port 5000?
+2. Check backend terminal for connection errors
+3. Backend will use fallback mode if Python service is unavailable
+
+### ❌ Webcam not working
+
+**Solutions:**
+1. Grant camera permissions in your browser
+2. Make sure no other app is using the webcam
+3. Try refreshing the page
+4. Try a different browser (Chrome, Firefox, Edge)
+
+---
+
+## Verification Checklist
+
+Before using the application, verify:
+
+- [ ] Python service shows "Models loaded successfully!"
+- [ ] Backend shows "Backend listening on http://localhost:4000"
+- [ ] Frontend shows "Local: http://localhost:5173"
+- [ ] You can access http://localhost:5173 in your browser
+- [ ] The home page loads correctly
+- [ ] You can navigate to the Detect page
+- [ ] Webcam permission is granted
+
+---
+
+## Using the Application
+
+1. Go to **http://localhost:5173**
+2. Click on **"Detect"** in the navigation
+3. Select **"Words"** or **"Alphabet"** mode
+4. Position yourself in front of your webcam
+5. Make a sign language gesture
+6. Click **"🔍 Detect Sign"**
+7. View the prediction and confidence score!
+
+---
+
+## Windows Batch Script Alternative
+
+Instead of opening 3 terminals manually, you can use:
+
+```bash
+start_all.bat
+```
+
+This will start all three services automatically in separate windows.
+

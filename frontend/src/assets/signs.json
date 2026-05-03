@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "title": "Hello",
+    "description": "Raise your hand near your head and wave slightly.",
+    "image": "/hello.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Thank You",
+    "description": "Place your fingertips near your chin and move your hand forward.",
+    "image": "/thankyou.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Yes",
+    "description": "Make a fist and nod it up and down, like your head saying yes.",
+    "image": "/yes.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "No",
+    "description": "Bring your index and middle fingers together with thumb and tap them.",
+    "image": "/no.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "I Love You",
+    "image": "/love.jpeg",
+    "description": "Extend your thumb, index finger, and little finger while folding the middle and ring fingers."
+  },
+  {
+    "id": 6,
+    "title": "Help",
+    "image": "/help.jpg",
+    "description": "Place one fist on the other palm and lift both slightly upward."
+  },
+  {
+    "id": 7,
+    "title": "Stop",
+    "image": "/stop.jpeg",
+    "description": "Hold one hand upright like a wall and strike its palm with the other hand."
+  },
+  {
+    "id": 8,
+    "title": "Good Morning",
+    "image": "/goodmorning.png",
+    "description": "Touch your chin then move your hand outward, followed by raising your arm upward like the sun rising."
+  },
+  {
+    "id": 9,
+    "title": "Good Night",
+    "image": "/goodnight.png",
+    "description": "Touch your chin then move your hand outward, then bring one arm under the other like a roof."
+  },
+  {
+    "id": 10,
+    "title": "Please",
+    "image": "/please.png",
+    "description": "Place your flat hand on your chest and move it in a circular motion."
+  },
+  {
+    "id": 11,
+    "title": "Sorry",
+    "image": "/sorry.png",
+    "description": "Make a fist and rub it in a circle over your chest."
+  },
+  {
+    "id": 12,
+    "title": "Friend",
+    "image": "/friends.jpeg",
+    "description": "Hook your index fingers together, first one way then the other."
+  }
+]
+

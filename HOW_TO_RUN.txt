@@ -1,0 +1,106 @@
+╔══════════════════════════════════════════════════════════════════╗
+║     HOW TO RUN AI SIGN LANGUAGE DETECTOR - STEP BY STEP          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+⚠️ IMPORTANT: You need to open 3 SEPARATE terminal windows!
+
+────────────────────────────────────────────────────────────────────
+STEP 1: Start Python Service (Terminal 1)
+────────────────────────────────────────────────────────────────────
+
+Open PowerShell/Command Prompt and run:
+
+    cd C:\Users\Pankaj\Desktop\projects\AI-based-sign-language-detector-main
+    cd backend\python_service
+    python app.py
+
+✅ You should see:
+   "✅ Models loaded successfully!"
+   "📡 API running on http://localhost:5000"
+
+Keep this terminal open!
+
+────────────────────────────────────────────────────────────────────
+STEP 2: Start Node.js Backend (Terminal 2)
+────────────────────────────────────────────────────────────────────
+
+Open a NEW PowerShell/Command Prompt and run:
+
+    cd C:\Users\Pankaj\Desktop\projects\AI-based-sign-language-detector-main
+    cd backend
+    npm start
+
+✅ You should see:
+   "Backend listening on http://localhost:4000"
+
+Keep this terminal open!
+
+────────────────────────────────────────────────────────────────────
+STEP 3: Start Frontend (Terminal 3) ⭐ THIS IS THE MAIN ONE!
+────────────────────────────────────────────────────────────────────
+
+Open a NEW PowerShell/Command Prompt and run:
+
+    cd C:\Users\Pankaj\Desktop\projects\AI-based-sign-language-detector-main
+    cd frontend
+    npm run dev
+
+✅ You should see:
+   "Local:   http://localhost:5173/"
+
+Keep this terminal open!
+
+────────────────────────────────────────────────────────────────────
+STEP 4: Open in Browser
+────────────────────────────────────────────────────────────────────
+
+Open your web browser and go to:
+
+    🌐 http://localhost:5173
+
+⭐ THIS IS THE CORRECT URL! ⭐
+
+NOT http://localhost:4000 (that's the backend API)
+NOT http://localhost:5000 (that's the Python service)
+
+────────────────────────────────────────────────────────────────────
+QUICK WAY (Alternative):
+────────────────────────────────────────────────────────────────────
+
+You can also just double-click:
+
+    start_all.bat
+
+This will start all 3 services automatically!
+
+────────────────────────────────────────────────────────────────────
+TROUBLESHOOTING:
+────────────────────────────────────────────────────────────────────
+
+❌ Getting "Cannot GET /" error?
+   → Make sure you're going to http://localhost:5173 (frontend)
+   → NOT http://localhost:4000 (backend)
+   → Make sure Terminal 3 (frontend) is running
+
+❌ Page not loading?
+   → Check all 3 terminals are running
+   → Make sure no error messages in terminals
+   → Try refreshing the browser page
+
+❌ Webcam not working?
+   → Click "Allow" when browser asks for camera permission
+   → Make sure no other app is using the webcam
+   → Try a different browser (Chrome recommended)
+
+────────────────────────────────────────────────────────────────────
+WHAT EACH SERVICE DOES:
+────────────────────────────────────────────────────────────────────
+
+Port 5000 (Python): Runs the AI models for sign detection
+Port 4000 (Node.js): API server that connects frontend to Python
+Port 5173 (React): The web interface you interact with
+
+You need ALL THREE running at the same time!
+
+═══════════════════════════════════════════════════════════════════
+

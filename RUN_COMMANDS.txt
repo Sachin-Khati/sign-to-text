@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════════
+COPY AND PASTE THESE COMMANDS IN ORDER (3 SEPARATE TERMINALS)
+═══════════════════════════════════════════════════════════════════
+
+TERMINAL 1 - Python Service:
+───────────────────────────────────────────────────────────────────
+cd C:\Users\Pankaj\Desktop\projects\AI-based-sign-language-detector-main
+cd backend\python_service
+python app.py
+───────────────────────────────────────────────────────────────────
+
+TERMINAL 2 - Node.js Backend:
+───────────────────────────────────────────────────────────────────
+cd C:\Users\Pankaj\Desktop\projects\AI-based-sign-language-detector-main
+cd backend
+npm start
+───────────────────────────────────────────────────────────────────
+
+TERMINAL 3 - Frontend (THIS IS THE MAIN ONE!):
+───────────────────────────────────────────────────────────────────
+cd C:\Users\Pankaj\Desktop\projects\AI-based-sign-language-detector-main
+cd frontend
+npm run dev
+───────────────────────────────────────────────────────────────────
+
+THEN OPEN IN BROWSER:
+───────────────────────────────────────────────────────────────────
+🌐 http://localhost:5173
+
+═══════════════════════════════════════════════════════════════════
+
